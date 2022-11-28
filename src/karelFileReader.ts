@@ -2,7 +2,11 @@
 import rewire from 'rewire'
 import { Karel } from 'jskarel'
 import fs from 'fs'
-import { Config } from 'dt-types'
+
+export interface Config {
+    karel?: any
+    world?: any
+}
 
 function replaceCustomStructures(fileName: string) {
     let contents = fs.readFileSync(fileName, 'utf8')
