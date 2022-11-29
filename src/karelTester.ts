@@ -1,6 +1,7 @@
 import * as fileReader from './karelFileReader'
-import { Result, Config } from 'dt-types'
+import { Result } from 'dt-types'
 
+type Config = fileReader.Config
 
 function getFileReaderError(err: any): Result {
     const result: Result = {
@@ -15,7 +16,7 @@ function getFileReaderError(err: any): Result {
     } else if (err.name == 'ReferenceError' && err.message.includes('main is not defined')) {
         result.details = `could not find function main() {} in the file.`
     } else {
-        result.details = `Unknown error occured: ${errLine}, ${err.message}`
+        result.details = `Unknown error occurred: ${errLine}, ${err.message}`
     }
     return result
 }
