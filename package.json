@@ -10,10 +10,19 @@
   "scripts": {
     "test": "ts-mocha test/*.test.ts",
     "watch": "ts-mocha --reporter min -w test/*test.ts --watch-files test/*test.ts,src/**/*.ts",
+    "build": "tsc && chmod u+x lib/testSubmission.js",
     "coverage": "nyc yarn test && rm -r .nyc_output",
-    "build": "tsc && chmod u+x lib/testSubmission.js"
+    "make-badges": "yarn coverage && istanbul-badges-readme"
   },
-  "files": ["src", "lib"],
+  "nyc": {
+    "reporter": [
+      "json-summary"
+    ]
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -29,8 +38,9 @@
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.9.8",
     "chai": "^4.2.0",
+    "istanbul-badges-readme": "^1.8.4",
     "mocha": "^7.1.1",
-    "nyc": "^15.0.0",
+    "nyc": "^15.1.0",
     "ts-mocha": "^7.0.0",
     "typescript": "^3.8.3"
   }
