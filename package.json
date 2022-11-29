@@ -10,6 +10,7 @@
     "coverage": "nyc yarn test && rm -r .nyc_output",
     "build": "tsc"
   },
+  "files": ["src", "lib"],
   "author": "",
   "license": "ISC",
   "dependencies": {
