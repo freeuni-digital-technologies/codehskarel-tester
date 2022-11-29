@@ -1,7 +1,7 @@
 # Codehskarel-tester
 Test karel submissions from codehs using [jskarel](https://github.com/freeuni-digital-technologies/jskarel)
 
-![coverage](https://img.shields.io/badge/lines-86.58%25-yellow.svg?style=flat)
+coverage: ![lines](https://img.shields.io/badge/lines-86.58%25-yellow.svg?style=flat)
 
 ## Usage
 ### Test File syntax
