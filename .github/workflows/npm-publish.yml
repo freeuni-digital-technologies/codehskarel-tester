@@ -1,26 +1,13 @@
 name: publish package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: DerYeger/yarn-setup-action@v1.0.1
-        with:
-          node-version: 16
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - run: yarn build
-
   publish-npm:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,10 +15,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - uses: DerYeger/yarn-setup-action@v1.0.1
-        with:
-          # The version of Node.js that will be used
-          node-version: 16
+      - run: npm install --global yarn
       - run: yarn install --frozen-lockfile
       - run: yarn test
       - run: yarn build
